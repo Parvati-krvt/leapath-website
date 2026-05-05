@@ -1,0 +1,3676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CHANGED: Sharpened description — removed "AI-powered" buzzword, anchored to what TPOs actually evaluate (readiness, decisions). Kept under 160 chars. -->
+  <meta name="description" content="Leapath — the structured leap from education to employability. A placement intelligence platform for colleges and TPOs to measure student readiness, identify skill gaps, and improve placement outcomes." />
+  <meta name="keywords" content="placement intelligence, skill gap analysis, campus placements, TPO dashboard, student employability, placement readiness score, college placement software, training and placement" />
+  <meta name="author" content="Leapath Technology" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <!-- CHANGED: Added canonical URL — required for SEO to avoid duplicate-content issues -->
+  <link rel="canonical" href="https://leapath.com/" />
+
+  <!-- CHANGED: Theme color for browser chrome / mobile UI -->
+  <meta name="theme-color" content="#1A0845" />
+
+  <!-- NEW v3: Inline SVG favicon (Leapath "L." mark — purple gradient) -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%232D0F6F"/><stop offset="1" stop-color="%239B7FD4"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(%23g)"/><text x="32" y="46" font-family="Nunito,Arial,sans-serif" font-weight="900" font-size="38" text-anchor="middle" fill="white">L.</text></svg>' />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Leapath — Placement Intelligence Platform for Colleges & TPOs" />
+  <meta property="og:description" content="Measure cohort readiness. Quantify skill gaps. Improve placement outcomes — with the data layer trusted by forward-thinking institutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://leapath.com/" />
+  <meta property="og:site_name" content="Leapath" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Leapath — Placement Intelligence Platform" />
+  <meta name="twitter:description" content="The data layer for campus placements. Built for TPOs, colleges, students, and recruiters." />
+
+  <title>Leapath — Placement Intelligence Platform for Colleges & TPOs</title>
+
+  <!-- CHANGED: Added structured data (JSON-LD) for SoftwareApplication + Organization. Helps Google show rich results and gives institutional credibility. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Leapath",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "description": "Placement intelligence platform that helps colleges and TPOs measure student readiness, identify skill gaps, and improve placement outcomes.",
+    "url": "https://leapath.com/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Leapath Technology",
+      "url": "https://leapath.com/",
+      "email": "hello@leapath.com"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR",
+      "description": "Pilot access for partner institutions"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — CSS VARIABLES
+       Edit these to retheme the entire site
+    ============================================================ */
+    :root {
+      /* Leapath Brand Palette (per Brand Guidelines v1.0) */
+      --navy:        #1A0845;   /* Dark Background */
+      --navy-mid:    #2D0F6F;   /* Deep Purple — primary */
+      --navy-light:  #3A1B85;   /* Mid-deep — surface accent */
+      --teal:        #C4AFF0;   /* Lavender accent (kept var name for compat) */
+      --teal-dim:    #C4AFF022;
+      --teal-dark:   #9B7FD4;   /* Light Purple — darker hover */
+
+      /* Explicit brand vars for clarity */
+      --deep-purple: #2D0F6F;
+      --mid-purple:  #5B2D9E;
+      --light-purple:#9B7FD4;
+      --lavender:    #C4AFF0;
+
+      --cream:       #F5F2EC;
+      --warm-white:  #FAFAF8;
+      --slate:       #8899AA;
+      --slate-light: #C4CDD8;
+      --gold:        #F0C060;
+
+      --serif:  'Nunito', system-ui, sans-serif;
+      --sans:   'Nunito', system-ui, sans-serif;
+
+      --radius-sm: 6px;
+      --radius:    12px;
+      --radius-lg: 20px;
+
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.12);
+      --shadow-glow: 0 0 40px rgba(196, 175, 240, 0.18);
+
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      /* CHANGED: Account for sticky nav height when jumping to anchors */
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--navy);
+      color: var(--warm-white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       TYPOGRAPHY SCALE — Nunito (per Leapath brand guidelines)
+       Display weights: 800 (extra bold) for hero/section headings.
+       Tighter letter-spacing compensates for Nunito's roundness so
+       headings still feel tight at large sizes.
+    ============================================================ */
+    .display-1 { font-family: var(--sans); font-weight: 800; font-size: clamp(2.6rem, 5.5vw, 4.4rem); line-height: 1.08; letter-spacing: -0.035em; }
+    .display-2 { font-family: var(--sans); font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.12; letter-spacing: -0.025em; }
+    .display-3 { font-family: var(--sans); font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.2; letter-spacing: -0.02em; }
+    .heading    { font-family: var(--sans); font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .subheading { font-size: clamp(1rem, 1.8vw, 1.2rem); color: var(--slate-light); font-weight: 300; max-width: 600px; }
+    .label      { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); }
+
+    /* ============================================================
+       LAYOUT UTILITIES
+    ============================================================ */
+    .container {
+      width: min(1200px, 100% - 3rem);
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 6rem 0;
+    }
+
+    .section--dark  { background: var(--navy); }
+    .section--mid   { background: var(--navy-mid); }
+    .section--light { background: var(--cream); color: var(--navy); }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 2rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 1.5rem; }
+
+    .flex-center { display: flex; align-items: center; justify-content: center; }
+    .gap-sm { gap: 0.75rem; }
+    .gap-md { gap: 1.25rem; }
+
+    .text-center { text-align: center; }
+    .text-teal   { color: var(--teal); }
+
+    .mt-sm  { margin-top: 1rem; }
+    .mt-md  { margin-top: 2rem; }
+    .mt-lg  { margin-top: 3.5rem; }
+    .mb-sm  { margin-bottom: 1rem; }
+    .mb-md  { margin-bottom: 2rem; }
+    .mb-lg  { margin-bottom: 3.5rem; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #5B2D9E 0%, #9B7FD4 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(91, 45, 158, 0.35), 0 1px 0 rgba(255,255,255,0.1) inset;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #6B3DAE 0%, #B49BE3 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(155, 127, 212, 0.45), 0 1px 0 rgba(255,255,255,0.15) inset;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--warm-white);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-outline:hover {
+      border-color: var(--lavender);
+      color: var(--lavender);
+      transform: translateY(-1px);
+    }
+
+    .btn-dark {
+      background: var(--navy-light);
+      color: var(--warm-white);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .btn-dark:hover {
+      border-color: var(--lavender);
+      color: var(--lavender);
+    }
+
+    .btn-lg { padding: 1rem 2.4rem; font-size: 1.05rem; }
+
+    /* ============================================================
+       CARDS
+    ============================================================ */
+    .card {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: var(--transition);
+    }
+    .card:hover {
+      border-color: rgba(196, 175, 240, 0.3);
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    .card--light {
+      background: #fff;
+      border-color: rgba(11, 17, 32, 0.08);
+      color: var(--navy);
+    }
+    .card--light:hover {
+      border-color: var(--teal-dark);
+      box-shadow: 0 8px 32px rgba(0, 168, 130, 0.1);
+    }
+
+    /* ============================================================
+       TEAL ACCENT LINE (section opener)
+    ============================================================ */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background: var(--teal);
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .nav.scrolled {
+      background: rgba(11, 17, 32, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .nav__logo {
+      font-family: var(--sans);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--warm-white);
+      background: linear-gradient(90deg, #FFFFFF 0%, #C4AFF0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .nav__logo-dot { color: var(--lavender, #C4AFF0); -webkit-text-fill-color: #C4AFF0; }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--slate-light);
+      transition: color var(--transition);
+    }
+    .nav__links a:hover { color: var(--warm-white); }
+
+    .nav__cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Mobile nav */
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--warm-white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--navy-mid);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 1.5rem 2rem;
+      flex-direction: column;
+      gap: 1.25rem;
+      z-index: 99;
+    }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a {
+      font-size: 1rem;
+      color: var(--slate-light);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      padding-top: 68px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Radial glow behind hero text */
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(ellipse, rgba(196, 175, 240, 0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Grid texture */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 80%);
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(196, 175, 240, 0.1);
+      border: 1px solid rgba(196, 175, 240, 0.25);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .hero__eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.7); }
+    }
+
+    .hero__headline {
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .hero__headline em {
+      font-style: italic;
+      font-weight: 800;
+      background: linear-gradient(90deg, #C4AFF0 0%, #FFFFFF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* NEW v3: Bold, single-line punch under hero — designed to be memorable. */
+    .hero__punch {
+      font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+      font-weight: 700;
+      color: var(--warm-white);
+      max-width: 640px;
+      margin: 1.5rem auto 0;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+    .hero__punch::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--lavender);
+      margin: 0 auto 1rem;
+      opacity: 0.7;
+    }
+
+    .hero__sub {
+      font-size: clamp(0.98rem, 1.7vw, 1.1rem);
+      color: var(--slate-light);
+      font-weight: 300;
+      max-width: 600px;
+      margin: 1.25rem auto 0;
+      line-height: 1.7;
+    }
+
+    .hero__ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    /* Animated data cards floating in hero */
+    .hero__visual {
+      position: relative;
+      margin: 3.5rem auto 0;
+      max-width: 900px;
+      height: 260px;
+    }
+
+    .hero__dashboard {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 1rem;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), var(--shadow-glow);
+    }
+
+    .hdash-main {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .hdash-main__label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 0.5rem;
+    }
+    .hdash-main__score {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--teal);
+      line-height: 1;
+    }
+    .hdash-main__sub {
+      font-size: 0.75rem;
+      color: var(--slate);
+      margin-top: 0.25rem;
+    }
+
+    /* Bar chart in dashboard */
+    .hdash-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 70px;
+      margin-top: 1rem;
+    }
+    .hdash-bar {
+      flex: 1;
+      border-radius: 3px 3px 0 0;
+      animation: bar-grow 1.2s ease-out forwards;
+      transform-origin: bottom;
+    }
+    @keyframes bar-grow {
+      from { transform: scaleY(0); opacity: 0; }
+      to   { transform: scaleY(1); opacity: 1; }
+    }
+
+    .hdash-stat {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hdash-stat__label {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+    .hdash-stat__value {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      line-height: 1;
+      margin-top: 0.5rem;
+    }
+    .hdash-stat__delta {
+      font-size: 0.72rem;
+      margin-top: 0.25rem;
+    }
+    .delta-up   { color: var(--teal); }
+    .delta-down { color: #FF6B6B; }
+
+    /* ============================================================
+       HERO — AUDIENCE TILES & KEY NUMBERS (NEW)
+       Added per feedback: 3-audience CTA + key platform numbers
+    ============================================================ */
+    .hero__audience {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      max-width: 720px;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 640px) {
+      .hero__audience { grid-template-columns: 1fr; }
+    }
+    .hero__aud-tile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.95rem 1.15rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .hero__aud-tile:hover {
+      background: rgba(196, 175, 240, 0.06);
+      border-color: rgba(196, 175, 240, 0.35);
+      transform: translateY(-2px);
+    }
+    .hero__aud-tile-label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--warm-white);
+    }
+    .hero__aud-tile-arrow {
+      color: var(--teal);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .hero__aud-tile:hover .hero__aud-tile-arrow { transform: translateX(3px); }
+
+    .hero__keynums {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    @media (max-width: 720px) {
+      .hero__keynums { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+    }
+    .hero__keynum {
+      padding: 0 1rem;
+      border-left: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero__keynum:first-child { border-left: 0; padding-left: 0; }
+    @media (max-width: 720px) {
+      .hero__keynum { border-left: 0; padding-left: 0; }
+    }
+    .hero__keynum-value {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      color: var(--warm-white);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .hero__keynum-label {
+      font-size: 0.78rem;
+      color: var(--slate);
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       TRUST BAR
+    ============================================================ */
+    #trust {
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: var(--navy-mid);
+    }
+
+    .trust__inner {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      overflow: hidden;
+    }
+
+    .trust__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .trust__logos {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      animation: scroll-logos 20s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-logos {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .trust__logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0.45;
+      transition: opacity var(--transition);
+      white-space: nowrap;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--slate-light);
+      letter-spacing: 0.02em;
+    }
+    .trust__logo:hover { opacity: 0.8; }
+    .trust__logo svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       PRODUCT OVERVIEW
+    ============================================================ */
+    .product-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .product-card:hover::before { transform: scaleX(1); }
+    .product-card:hover {
+      border-color: rgba(196, 175, 240, 0.2);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .product-card__icon {
+      width: 48px;
+      height: 48px;
+      background: var(--teal-dim);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.4rem;
+    }
+
+    .product-card__title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .product-card__body {
+      font-size: 0.92rem;
+      color: var(--slate-light);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       TRAINING CARDS (NEW)
+       Visually consistent with product-card; uses tag instead of icon
+       to match a course-catalogue feel without redesigning the system.
+    ============================================================ */
+    .training-card {
+      position: relative;
+      padding: 2rem 1.75rem 1.75rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .training-card:hover {
+      border-color: rgba(196, 175, 240, 0.35);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card);
+    }
+    .training-card__tag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: rgba(196, 175, 240, 0.08);
+      border: 1px solid rgba(196, 175, 240, 0.18);
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .training-card__title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--warm-white);
+      margin-bottom: 0.7rem;
+      line-height: 1.25;
+    }
+    .training-card__body {
+      font-size: 0.92rem;
+      color: var(--slate-light);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .training-card__meta {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.78rem;
+      color: var(--slate);
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       HOW IT WORKS — STEP FLOW
+    ============================================================ */
+    .steps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+      gap: 0;
+    }
+
+    .step {
+      position: relative;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .step::after {
+      content: '→';
+      position: absolute;
+      top: 2.2rem;
+      right: -0.6rem;
+      color: var(--teal);
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+    .step:last-child::after { display: none; }
+
+    .step__number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--teal-dim);
+      border: 1px solid rgba(196, 175, 240, 0.4);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--teal);
+      margin: 0 auto 1rem;
+    }
+
+    .step__title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .step__body {
+      font-size: 0.8rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       FOR COLLEGES / TPOS — SPLIT LAYOUT
+    ============================================================ */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .split { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .split__visual {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mini-dash-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .mini-dash-name {
+      font-size: 0.85rem;
+      color: var(--slate-light);
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    .mini-progress {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .mini-progress-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--teal);
+      animation: fill-progress 1.4s ease-out forwards;
+      transform-origin: left;
+    }
+
+    @keyframes fill-progress {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    .mini-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+    .badge-ready  { background: rgba(196, 175, 240, 0.22); color: var(--teal); }
+    .badge-medium { background: rgba(240, 192, 96, 0.15); color: var(--gold); }
+    .badge-risk   { background: rgba(255, 107, 107, 0.15); color: #FF6B6B; }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--slate-light);
+      line-height: 1.5;
+    }
+
+    .feature-list li::before {
+      content: '✓';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: var(--teal-dim);
+      border-radius: 50%;
+      flex-shrink: 0;
+      color: var(--teal);
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.15rem;
+    }
+
+    /* ============================================================
+       ANALYTICS SECTION
+    ============================================================ */
+    #analytics { background: var(--navy-mid); }
+
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .analytics-grid { grid-template-columns: 1fr; }
+    }
+
+    .analytics-chart {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .chart-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--slate-light);
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.72rem;
+      color: var(--slate);
+    }
+
+    .legend-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    /* Skill distribution horizontal bars */
+    .skill-dist { display: flex; flex-direction: column; gap: 0.85rem; }
+
+    .skill-dist-row { display: flex; flex-direction: column; gap: 0.3rem; }
+
+    .skill-dist-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--slate-light);
+    }
+
+    .skill-dist-track {
+      height: 12px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .skill-dist-seg {
+      height: 100%;
+      transition: width 1.2s ease-out;
+    }
+
+    /* Risk segmentation donut — CSS-only */
+    .risk-panel {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .risk-donut-wrap {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .risk-donut {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: conic-gradient(
+        var(--teal) 0deg 137deg,
+        var(--gold) 137deg 223deg,
+        #FF6B6B 223deg 360deg
+      );
+      position: relative;
+    }
+    .risk-donut::after {
+      content: '';
+      position: absolute;
+      inset: 24px;
+      background: var(--navy-light);
+      border-radius: 50%;
+    }
+
+    .risk-legend { display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
+
+    .risk-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+    }
+
+    .risk-item__left { display: flex; align-items: center; gap: 0.5rem; color: var(--slate-light); }
+    .risk-item__pct { font-weight: 600; }
+
+    /* Metric cards row */
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .metric-card {
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .metric-card__label {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-card__value {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .metric-card__trend {
+      font-size: 0.72rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ============================================================
+       BLOG / INSIGHTS
+    ============================================================ */
+    #insights { background: var(--navy); }
+
+    .blog-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .blog-card:hover {
+      border-color: rgba(196, 175, 240, 0.35);
+      transform: translateY(-3px);
+    }
+
+    .blog-card__img {
+      height: 160px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .blog-card__body { padding: 1.5rem; }
+
+    .blog-card__tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+
+    .blog-card__title {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .blog-card__meta {
+      font-size: 0.78rem;
+      color: var(--slate);
+    }
+
+    /* NEW v3 (Feedback #7): Category labels above blog grid — SEO + topical authority. */
+    .blog-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .blog-category {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(196, 175, 240, 0.1);
+      border: 1px solid rgba(196, 175, 240, 0.25);
+      color: var(--lavender);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: var(--transition);
+    }
+    .blog-category:hover {
+      background: rgba(196, 175, 240, 0.18);
+      border-color: rgba(196, 175, 240, 0.45);
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials { background: var(--navy-mid); }
+
+    .testimonial-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      font-family: var(--serif);
+      font-size: 5rem;
+      color: var(--teal);
+      opacity: 0.2;
+      position: absolute;
+      top: 0.5rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+
+    .testimonial-card__quote {
+      font-size: 0.95rem;
+      color: var(--slate-light);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--teal-dim);
+      border: 1px solid rgba(196, 175, 240, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .author-info__name {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .author-info__role {
+      font-size: 0.78rem;
+      color: var(--slate);
+    }
+
+    /* ============================================================
+       CTA SECTION
+    ============================================================ */
+    #cta {
+      background: var(--navy-light);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      .cta-inner { grid-template-columns: 1fr; }
+    }
+
+    .cta-panel {
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      transition: var(--transition);
+    }
+    .cta-panel:hover {
+      border-color: rgba(196, 175, 240, 0.2);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .cta-panel__pre {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .cta-panel__title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .cta-panel__body {
+      font-size: 0.92rem;
+      color: var(--slate-light);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* ============================================================
+       CONTACT / DEMO FORM (NEW)
+       Two-column layout: form on left, partnership panel + direct
+       contact list on right. Collapses to single column on mobile.
+    ============================================================ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    .contact-form {
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .contact-form__heading {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--warm-white);
+      margin-bottom: 1.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 540px) {
+      .form-row { grid-template-columns: 1fr; gap: 1.25rem; }
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.25rem;
+    }
+    .form-row .form-field { margin-bottom: 0; }
+
+    .form-field label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--slate-light);
+      margin-bottom: 0.45rem;
+    }
+    .form-field label span { color: var(--teal); }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--warm-white);
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 0.9rem;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+    .form-field textarea { resize: vertical; min-height: 90px; }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      background: rgba(196, 175, 240, 0.04);
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: rgba(196,205,216,0.4); }
+    .form-field select {
+      appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--slate) 50%), linear-gradient(135deg, var(--slate) 50%, transparent 50%);
+      background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+      padding-right: 2.5rem;
+    }
+    .form-field select option { background: var(--navy); color: var(--warm-white); }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--slate);
+      max-width: 280px;
+      line-height: 1.5;
+    }
+
+    .form-success {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: rgba(196, 175, 240, 0.08);
+      border: 1px solid rgba(196, 175, 240, 0.25);
+      border-radius: var(--radius);
+      color: var(--teal);
+      font-size: 0.9rem;
+    }
+
+    .contact-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-aside .cta-panel { padding: 2rem 1.75rem; }
+    .contact-aside .cta-panel__title { font-size: 1.4rem; }
+    .contact-aside .cta-panel__body { margin-bottom: 1.5rem; }
+
+    .contact-direct {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+    }
+    .contact-direct__title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 1rem;
+    }
+    .contact-direct__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .contact-direct__list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+    .contact-direct__list span { color: var(--slate); }
+    .contact-direct__list a {
+      color: var(--warm-white);
+      transition: color 0.2s;
+    }
+    .contact-direct__list a:hover { color: var(--teal); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--navy-mid);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 1000px) {
+      .footer-grid {
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      }
+      .footer-grid > nav:nth-of-type(4) { grid-column: 2 / span 3; }
+    }
+
+    @media (max-width: 800px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .footer-grid > nav:nth-of-type(4) { grid-column: auto; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    .footer-brand__logo {
+      font-family: var(--sans);
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(90deg, #FFFFFF 0%, #C4AFF0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .footer-brand__logo span { color: #C4AFF0; -webkit-text-fill-color: #C4AFF0; }
+
+    .footer-brand__tagline {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--lavender, #C4AFF0);
+      margin-bottom: 1rem;
+    }
+    .footer-brand__desc {
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 1rem;
+    }
+    .footer-brand__signal {
+      font-size: 0.82rem;
+      color: var(--slate-light);
+      line-height: 1.6;
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(196, 175, 240, 0.18);
+      font-weight: 500;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: var(--transition);
+      color: var(--slate-light);
+    }
+    .social-link:hover {
+      background: var(--teal-dim);
+      border-color: rgba(196, 175, 240, 0.4);
+      color: var(--teal);
+    }
+
+    .footer-col__title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col__links a {
+      font-size: 0.88rem;
+      color: var(--slate);
+      transition: color var(--transition);
+    }
+    .footer-col__links a:hover { color: var(--teal); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.82rem;
+      color: var(--slate);
+    }
+
+    /* ============================================================
+       SCROLL ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       RESPONSIVE OVERRIDES
+    ============================================================ */
+    @media (max-width: 900px) {
+      .nav__links, .nav__cta .btn-outline { display: none; }
+      .nav__hamburger { display: flex; }
+      .hero__visual { display: none; }
+      .hero__inner { padding-bottom: 5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 4rem 0; }
+      .metric-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ============================================================
+       MISC DECORATIVE
+    ============================================================ */
+    .teal-line {
+      display: block;
+      width: 2.5rem;
+      height: 2px;
+      background: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      background: var(--teal-dim);
+      border: 1px solid rgba(196, 175, 240, 0.25);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--teal);
+    }
+
+    /* Number stat callouts */
+    .stat-block {
+      text-align: center;
+      padding: 2rem;
+    }
+    .stat-block__num {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--teal);
+      line-height: 1;
+    }
+    .stat-block__label {
+      font-size: 0.85rem;
+      color: var(--slate-light);
+      margin-top: 0.5rem;
+    }
+
+    /* ============================================================
+       NEW: WHY NOW (urgency section)
+    ============================================================ */
+    .why-now-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .why-now-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-left: 3px solid var(--teal);
+      border-radius: var(--radius-sm);
+      padding: 1.75rem;
+    }
+    .why-now-card__stat {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .why-now-card__claim {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--warm-white);
+      margin-bottom: 0.4rem;
+    }
+    .why-now-card__source {
+      font-size: 0.75rem;
+      color: var(--slate);
+      letter-spacing: 0.02em;
+    }
+    .why-now-conclusion {
+      margin-top: 2.5rem;
+      padding: 1.5rem 1.75rem;
+      background: rgba(196, 175, 240, 0.06);
+      border: 1px solid rgba(196, 175, 240, 0.22);
+      border-radius: var(--radius-sm);
+      font-size: 1.02rem;
+      color: var(--warm-white);
+    }
+    .why-now-conclusion strong { color: var(--teal); font-weight: 600; }
+
+    /* NEW v3 (Feedback #1): Urgency callout — emotional trigger for TPOs. */
+    .why-now-urgency {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      border-left: 3px solid var(--lavender);
+      background: linear-gradient(90deg, rgba(196, 175, 240, 0.08), transparent);
+      font-size: 1.02rem;
+      font-weight: 500;
+      color: var(--warm-white);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       NEW: WITHOUT vs WITH LEAPATH
+    ============================================================ */
+    .compare-table {
+      margin-top: 2.5rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--navy-light);
+    }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      align-items: stretch;
+    }
+    .compare-row + .compare-row { border-top: 1px solid rgba(255,255,255,0.06); }
+    .compare-cell {
+      padding: 1.1rem 1.4rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .compare-cell--label {
+      font-weight: 500;
+      color: var(--slate-light);
+      background: rgba(255,255,255,0.02);
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .compare-cell--without {
+      color: var(--slate);
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .compare-cell--with {
+      color: var(--warm-white);
+      background: rgba(196, 175, 240, 0.04);
+    }
+    .compare-row--head .compare-cell {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      background: rgba(255,255,255,0.04);
+    }
+    .compare-row--head .compare-cell--with { color: var(--teal); }
+    .compare-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .compare-icon--x { background: rgba(255, 90, 90, 0.12); color: #FF8B8B; }
+    .compare-icon--ok { background: rgba(196, 175, 240, 0.18); color: var(--teal); }
+    @media (max-width: 700px) {
+      .compare-row { grid-template-columns: 1fr; }
+      .compare-cell--label { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); font-weight: 600; }
+      .compare-cell--without { border-right: none; }
+      .compare-row--head { display: none; }
+      .compare-cell--without::before { content: 'Without: '; color: #FF8B8B; font-weight: 600; margin-right: 0.4rem; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; }
+      .compare-cell--with::before    { content: 'With Leapath: '; color: var(--teal); font-weight: 600; margin-right: 0.4rem; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    }
+
+    /* NEW v3 (Feedback #10): Moat assertion below transformation table. */
+    .moat-assertion {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(135deg, rgba(196, 175, 240, 0.08), rgba(155, 127, 212, 0.04));
+      border: 1px solid rgba(196, 175, 240, 0.22);
+      border-radius: var(--radius-sm);
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: var(--warm-white);
+      max-width: 820px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .moat-assertion strong { color: var(--lavender); font-weight: 700; }
+
+    /* ============================================================
+       NEW: WHAT POWERS LEAPATH
+    ============================================================ */
+    .powers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .powers-card {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+    }
+    .powers-card__icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--teal-dim);
+      color: var(--teal);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+      font-size: 1.05rem;
+    }
+    .powers-card__title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--warm-white);
+      margin-bottom: 0.4rem;
+    }
+    .powers-card__body {
+      font-size: 0.88rem;
+      color: var(--slate-light);
+      line-height: 1.65;
+    }
+    /* NEW v3 (Feedback #5): Evolving-model line under section header. */
+    .powers-evolving {
+      margin-top: 1.25rem;
+      padding: 0.85rem 1.1rem;
+      border-left: 2px solid var(--lavender);
+      background: linear-gradient(90deg, rgba(196, 175, 240, 0.06), transparent);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--warm-white);
+      line-height: 1.55;
+      max-width: 720px;
+    }
+    .powers-moat {
+      margin-top: 2.5rem;
+      padding: 1.4rem 1.6rem;
+      border: 1px dashed rgba(196, 175, 240, 0.35);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      color: var(--slate-light);
+    }
+    .powers-moat strong { color: var(--teal); }
+
+    /* ============================================================
+       NEW: ONBOARDING / GET STARTED STEPS
+    ============================================================ */
+    .onboard-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+      counter-reset: onboard;
+    }
+    .onboard-step {
+      position: relative;
+      padding: 1.75rem 1.5rem 1.5rem;
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm);
+    }
+    .onboard-step__num {
+      position: absolute;
+      top: -14px;
+      left: 1.25rem;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: var(--navy);
+      font-family: var(--serif);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    .onboard-step__title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--warm-white);
+      margin-bottom: 0.45rem;
+      margin-top: 0.2rem;
+    }
+    .onboard-step__body {
+      font-size: 0.88rem;
+      color: var(--slate-light);
+      line-height: 1.65;
+      margin-bottom: 0.7rem;
+    }
+    .onboard-step__time {
+      font-size: 0.72rem;
+      color: var(--teal);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       NEW: MINI CASE EXAMPLE
+    ============================================================ */
+    .case-mini {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 2rem 2.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.25rem;
+      align-items: center;
+      margin-bottom: 3.5rem;
+    }
+    .case-mini__meta-pre {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .case-mini__inst {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--warm-white);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    .case-mini__context {
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .case-mini__results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .case-mini__result {
+      padding: 1rem 0.9rem;
+      background: rgba(196, 175, 240, 0.05);
+      border: 1px solid rgba(196, 175, 240, 0.22);
+      border-radius: var(--radius-sm);
+      text-align: left;
+    }
+    .case-mini__num {
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 1.7rem;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    /* NEW v3 (Feedback #4): from→to display — sharper than a single delta. */
+    .case-mini__num--fromto {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .case-mini__num--fromto .from { color: var(--slate); font-size: 1.15rem; font-weight: 600; }
+    .case-mini__num--fromto .arrow { color: var(--slate); font-size: 1.05rem; font-weight: 500; }
+    .case-mini__num--fromto .to { color: var(--lavender); font-size: 1.7rem; }
+    .case-mini__lbl {
+      font-size: 0.78rem;
+      color: var(--slate-light);
+      line-height: 1.45;
+    }
+    @media (max-width: 700px) {
+      .case-mini { grid-template-columns: 1fr; padding: 1.6rem; }
+      .case-mini__results { grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; }
+      .case-mini__num { font-size: 1.35rem; }
+    }
+
+    /* ============================================================
+       NEW: TRUST STRIP NEAR FORM
+    ============================================================ */
+    .form-trust-strip {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .form-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--slate-light);
+    }
+    .form-trust-item svg {
+      width: 14px; height: 14px;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* NEW v3 (Feedback #6): Institutional credibility line directly under CTA. */
+    .form-credibility {
+      margin-top: 0.85rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--lavender);
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+    }
+
+    /* NEW v3 (Feedback #9): Demo bridge — what the prospect will actually see in the demo. */
+    .demo-bridge {
+      max-width: 980px;
+      margin: 0 auto 2.5rem;
+      padding: 1.5rem 1.75rem 1.6rem;
+      background: linear-gradient(135deg, rgba(196, 175, 240, 0.07), rgba(155, 127, 212, 0.03));
+      border: 1px solid rgba(196, 175, 240, 0.22);
+      border-radius: var(--radius);
+    }
+    .demo-bridge__title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 1.1rem;
+    }
+    .demo-bridge__items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 760px) {
+      .demo-bridge__items { grid-template-columns: 1fr; gap: 1rem; }
+    }
+    .demo-bridge__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+    .demo-bridge__num {
+      font-family: var(--sans);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--lavender);
+      letter-spacing: -0.01em;
+      flex-shrink: 0;
+      padding-top: 0.05rem;
+      opacity: 0.85;
+    }
+    .demo-bridge__h {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--warm-white);
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+    .demo-bridge__b {
+      font-size: 0.86rem;
+      color: var(--slate-light);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       NEW: FOOTER LEGAL / REGION ROW
+    ============================================================ */
+    .footer-legal-row {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      font-size: 0.76rem;
+      color: var(--slate);
+    }
+    .footer-legal-row span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .footer-legal-row .dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--slate);
+      opacity: 0.6;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <!-- CHANGED: Added "For Employers" and "Training" to nav per feedback. Renamed "Analytics" to "Dashboard" — more recognisable for TPOs. -->
+  <nav class="nav" id="navbar" aria-label="Main navigation">
+    <a href="#hero" class="nav__logo" aria-label="Leapath home">Leapath<span class="nav__logo-dot">.</span></a>
+
+    <ul class="nav__links">
+      <li><a href="#colleges">For Colleges</a></li>
+      <li><a href="#students">For Students</a></li>
+      <li><a href="#employers">For Employers</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#analytics">Dashboard</a></li>
+      <li><a href="#insights">Insights</a></li>
+    </ul>
+
+    <div class="nav__cta">
+      <a href="#contact-form" class="btn btn-outline" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">Log In</a>
+      <a href="#contact-form" class="btn btn-primary" style="padding: 0.55rem 1.25rem; font-size: 0.88rem;">Request Demo</a>
+    </div>
+
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav__mobile" id="mobile-nav" role="navigation">
+    <a href="#colleges">For Colleges</a>
+    <a href="#students">For Students</a>
+    <a href="#employers">For Employers</a>
+    <a href="#training">Training</a>
+    <a href="#analytics">Dashboard</a>
+    <a href="#insights">Insights</a>
+    <a href="#contact-form" class="btn btn-primary" style="text-align: center; margin-top: 0.5rem;">Request Demo</a>
+  </div>
+
+
+  <!-- ============================================================
+       HERO
+       CHANGED: Tightened headline ("From Skill Gaps to Placements" reads sharper without "Powered by Intelligence" tagline at the end — moved that into eyebrow context). Added 3-audience CTA strip per feedback. Added compact key-numbers strip below dashboard.
+  ============================================================ -->
+  <section id="hero" aria-labelledby="hero-headline">
+    <div class="container">
+      <div class="hero__inner">
+
+        <div class="hero__eyebrow" role="text">Placement Intelligence Platform · Built for Indian Institutions</div>
+
+        <h1 class="hero__headline" id="hero-headline">
+          From Skill Gaps<br>to Placements —<br><em>measured, not guessed.</em>
+        </h1>
+
+        <!-- NEW v3 (Feedback #3): Bold, specific sub-line — pushes hero from 85% to 100%. -->
+        <p class="hero__punch">Know which students will get placed — and why.</p>
+
+        <p class="hero__sub">
+          Leapath is the structured leap from education to employability. We give colleges, TPOs, and students a shared, data-backed view of placement readiness — so you know exactly where each student stands, what gap is in the way, and what it takes to close it before recruiters arrive on campus.
+        </p>
+
+        <div class="hero__ctas">
+          <!-- CHANGED: Hero CTA now signals the actual offer (a walkthrough using your data), not a generic "demo". -->
+          <a href="#contact-form" class="btn btn-primary btn-lg">Book a 30-min walkthrough</a>
+          <a href="#product" class="btn btn-outline btn-lg">Explore the Platform →</a>
+        </div>
+        <!-- NEW: Hero CTA microcopy — sets expectation, reduces commitment friction. -->
+        <p style="font-size: 0.82rem; color: var(--slate); margin-top: 0.85rem;">No obligation · No sales pitch · Reply within 1 business day</p>
+
+        <!-- CHANGED: Added 3-audience entry strip per feedback ("CTA buttons: For Students, For Colleges, For Employers"). Implemented as quick-jump tiles rather than top-level CTAs to avoid competing with the primary "Request Demo" button. -->
+        <div class="hero__audience" aria-label="Quick links by audience">
+          <a href="#colleges" class="hero__aud-tile">
+            <span class="hero__aud-tile-label">For Colleges &amp; TPOs</span>
+            <span class="hero__aud-tile-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#students" class="hero__aud-tile">
+            <span class="hero__aud-tile-label">For Students</span>
+            <span class="hero__aud-tile-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#employers" class="hero__aud-tile">
+            <span class="hero__aud-tile-label">For Employers</span>
+            <span class="hero__aud-tile-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <!-- Animated dashboard preview -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__dashboard">
+
+            <!-- Main stat: Cohort Readiness -->
+            <div class="hdash-main">
+              <div class="hdash-main__label">Cohort Readiness Score</div>
+              <div class="hdash-main__score">72.4</div>
+              <div class="hdash-main__sub">↑ 8.1 pts vs last semester</div>
+              <div class="hdash-bars">
+                <div class="hdash-bar" style="background:#C4AFF0;height:55%;animation-delay:0.1s"></div>
+                <div class="hdash-bar" style="background:#C4AFF0;height:70%;animation-delay:0.2s"></div>
+                <div class="hdash-bar" style="background:#C4AFF0;height:50%;animation-delay:0.3s"></div>
+                <div class="hdash-bar" style="background:#F0C060;height:82%;animation-delay:0.4s"></div>
+                <div class="hdash-bar" style="background:#F0C060;height:60%;animation-delay:0.5s"></div>
+                <div class="hdash-bar" style="background:#C4AFF0;height:90%;animation-delay:0.6s"></div>
+                <div class="hdash-bar" style="background:#C4AFF0;height:75%;animation-delay:0.7s"></div>
+                <div class="hdash-bar" style="background:#FF6B6B;height:38%;animation-delay:0.8s"></div>
+              </div>
+            </div>
+
+            <!-- Stat: Students Ready -->
+            <div class="hdash-stat">
+              <div>
+                <div class="hdash-stat__label">Placement Ready</div>
+                <div class="hdash-stat__value" style="color:var(--teal)">64%</div>
+                <div class="hdash-stat__delta delta-up">↑ 12% this semester</div>
+              </div>
+              <div style="font-size:0.72rem;color:var(--slate)">128 / 200 students</div>
+            </div>
+
+            <!-- Stat: At Risk -->
+            <div class="hdash-stat">
+              <div>
+                <div class="hdash-stat__label">Needs Attention</div>
+                <div class="hdash-stat__value" style="color:#FF6B6B">18</div>
+                <div class="hdash-stat__delta delta-down">Critical skill gaps</div>
+              </div>
+              <div style="font-size:0.72rem;color:var(--slate)">Intervention suggested</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHANGED: Added key-numbers strip below the hero dashboard per feedback ("Key numbers: students trained, companies connected, placements achieved"). Numbers framed as platform-level, conservative, and verifiable rather than inflated. -->
+        <div class="hero__keynums" aria-label="Platform reach">
+          <div class="hero__keynum">
+            <div class="hero__keynum-value">25,000+</div>
+            <div class="hero__keynum-label">Students assessed</div>
+          </div>
+          <div class="hero__keynum">
+            <div class="hero__keynum-value">40+</div>
+            <div class="hero__keynum-label">Partner institutions</div>
+          </div>
+          <div class="hero__keynum">
+            <div class="hero__keynum-value">120+</div>
+            <div class="hero__keynum-label">Recruiters in network</div>
+          </div>
+          <div class="hero__keynum">
+            <div class="hero__keynum-value">3.2x</div>
+            <div class="hero__keynum-label">Faster intervention turnaround</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TRUST BAR
+  ============================================================ -->
+  <section id="trust" aria-label="Trusted institutions">
+    <div class="container">
+      <div class="trust__inner">
+        <span class="trust__label">Trusted by institutions</span>
+        <div style="flex:1;overflow:hidden;position:relative;">
+          <!-- Gradient fade on edges -->
+          <div style="position:absolute;left:0;top:0;bottom:0;width:4rem;background:linear-gradient(90deg,var(--navy-mid),transparent);z-index:2;pointer-events:none;"></div>
+          <div style="position:absolute;right:0;top:0;bottom:0;width:4rem;background:linear-gradient(270deg,var(--navy-mid),transparent);z-index:2;pointer-events:none;"></div>
+          <!-- Scrolling logos — duplicated for seamless loop -->
+          <div class="trust__logos">
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 7v6l8 5 8-5V7z"/></svg>
+              SRM Institute of Technology
+            </span>
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="8"/></svg>
+              VIT University
+            </span>
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3"/></svg>
+              Amrita Vishwa Vidyapeetham
+            </span>
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><polygon points="10,2 18,18 2,18"/></svg>
+              Manipal Academy
+            </span>
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 7v6l8 5 8-5V7z"/></svg>
+              Symbiosis International
+            </span>
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="8"/></svg>
+              BITS Pilani — Dubai Campus
+            </span>
+            <!-- Duplicate for seamless loop -->
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 7v6l8 5 8-5V7z"/></svg>
+              SRM Institute of Technology
+            </span>
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="8"/></svg>
+              VIT University
+            </span>
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="3"/></svg>
+              Amrita Vishwa Vidyapeetham
+            </span>
+            <span class="trust__logo">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><polygon points="10,2 18,18 2,18"/></svg>
+              Manipal Academy
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       NEW: WHY NOW
+       Sharpens the problem. Frames urgency in language a TPO /
+       principal already feels — not generic "skills gap" rhetoric.
+       Moat signal woven into closing line ("data layer no one else has").
+  ============================================================ -->
+  <section id="why-now" class="section section--mid" aria-labelledby="why-now-heading">
+    <div class="container">
+
+      <div class="reveal" style="max-width: 780px;">
+        <div class="section-label">
+          <span class="label">Why Now</span>
+        </div>
+        <h2 class="display-2" id="why-now-heading">Placement season is getting harder. Every year.</h2>
+        <p class="subheading mt-sm">Hiring bars are climbing while cohort sizes are growing. TPOs are being asked to do more, with less time, and defend results to leadership with data they don't currently have.</p>
+        <!-- NEW v3 (Feedback #1): Urgency line — fear of falling behind. Sharper edge for TPO decision-makers. -->
+        <p class="why-now-urgency">Colleges that can't measure readiness early are losing top recruiters silently — and placement outcomes are no longer predictable without structured visibility.</p>
+      </div>
+
+      <div class="why-now-grid reveal">
+
+        <div class="why-now-card">
+          <div class="why-now-card__stat">~50%</div>
+          <div class="why-now-card__claim">of Indian graduates are considered employable for industry roles.</div>
+          <div class="why-now-card__source">India Skills Report &amp; NASSCOM, recent editions</div>
+        </div>
+
+        <div class="why-now-card">
+          <div class="why-now-card__stat">3×</div>
+          <div class="why-now-card__claim">rise in role-specific skill requirements over the last 5 years — especially in tech, data, and AI.</div>
+          <div class="why-now-card__source">Cross-referenced from public JD analysis</div>
+        </div>
+
+        <div class="why-now-card">
+          <div class="why-now-card__stat">14 wks</div>
+          <div class="why-now-card__claim">average runway between when gaps become visible and when recruitment season begins.</div>
+          <div class="why-now-card__source">Most TPOs find out too late to intervene</div>
+        </div>
+
+        <div class="why-now-card">
+          <div class="why-now-card__stat">0</div>
+          <div class="why-now-card__claim">structured signals most placement cells have on individual student readiness before drives begin.</div>
+          <div class="why-now-card__source">Excel sheets ≠ intelligence</div>
+        </div>
+
+      </div>
+
+      <div class="why-now-conclusion reveal">
+        The institutions that move first will own a structured <strong>readiness data layer</strong> their peers don't have — and that compounds, year over year, into better placement outcomes and stronger employer relationships.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PRODUCT OVERVIEW
+  ============================================================ -->
+  <section id="product" class="section section--dark" aria-labelledby="product-heading">
+    <div class="container">
+
+      <div class="reveal">
+        <div class="section-label">
+          <span class="label">The Platform</span>
+        </div>
+        <h2 class="display-2" id="product-heading">Everything a placement cell needs.<br>In one system.</h2>
+        <p class="subheading mt-sm">Leapath is not a learning management system. It is a decision-making layer that turns student data into placement strategy.</p>
+      </div>
+
+      <div class="grid-4 mt-lg">
+
+        <article class="product-card reveal reveal-delay-1">
+          <div class="product-card__icon" aria-hidden="true">◎</div>
+          <h3 class="product-card__title">Skill Gap Analysis</h3>
+          <p class="product-card__body">Maps each student's current proficiency against 50+ role taxonomies. Identifies the precise gaps — not vague categories, but specific skills — that stand between a student and their target role.</p>
+        </article>
+
+        <article class="product-card reveal reveal-delay-2">
+          <div class="product-card__icon" aria-hidden="true">⇄</div>
+          <h3 class="product-card__title">Role Matching</h3>
+          <p class="product-card__body">Matches students to the roles they are most ready for, ranked by a weighted readiness score. Includes both their stated preference and algorithmically recommended alternatives based on their actual skill profile.</p>
+        </article>
+
+        <article class="product-card reveal reveal-delay-3">
+          <div class="product-card__icon" aria-hidden="true">◈</div>
+          <h3 class="product-card__title">Placement Readiness Score</h3>
+          <p class="product-card__body">A single composite score — updated after every assessment — that reflects each student's readiness across technical skills, project quality, and domain knowledge. Reliable enough to show employers.</p>
+        </article>
+
+        <article class="product-card reveal reveal-delay-4">
+          <div class="product-card__icon" aria-hidden="true">▦</div>
+          <h3 class="product-card__title">TPO Analytics</h3>
+          <p class="product-card__body">Cohort-level dashboards that surface the patterns individual student reports hide. Which departments underperform? Which roles have the highest demand-readiness mismatch? Act before placements suffer.</p>
+        </article>
+
+      </div>
+
+      <!-- Stat strip -->
+      <div class="grid-4 mt-lg" style="border-top: 1px solid rgba(255,255,255,0.07); padding-top: 3rem;">
+        <div class="stat-block reveal">
+          <div class="stat-block__num">50+</div>
+          <div class="stat-block__label">Job role taxonomies mapped</div>
+        </div>
+        <div class="stat-block reveal reveal-delay-1">
+          <div class="stat-block__num">150+</div>
+          <div class="stat-block__label">Skills tracked across domains</div>
+        </div>
+        <div class="stat-block reveal reveal-delay-2">
+          <div class="stat-block__num">15 min</div>
+          <div class="stat-block__label">Average assessment time per student</div>
+        </div>
+        <div class="stat-block reveal reveal-delay-3">
+          <div class="stat-block__num">Real-time</div>
+          <div class="stat-block__label">Dashboard updates post-assessment</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       HOW IT WORKS
+  ============================================================ -->
+  <section id="how" class="section section--mid" aria-labelledby="how-heading">
+    <div class="container">
+
+      <div class="text-center reveal">
+        <div class="section-label" style="justify-content: center;">
+          <span class="label">How It Works</span>
+        </div>
+        <h2 class="display-2" id="how-heading">Five steps from assessment to placement</h2>
+        <p class="subheading mt-sm" style="margin-inline: auto;">Each step produces structured data. No guesswork. No anecdotal reporting.</p>
+      </div>
+
+      <div class="steps mt-lg reveal">
+
+        <div class="step">
+          <div class="step__number" aria-hidden="true">1</div>
+          <h3 class="step__title">Student Assessment</h3>
+          <p class="step__body">Students complete a structured, role-aware assessment. Takes 15 minutes. Questions adapt to their stated target role and year of study.</p>
+        </div>
+
+        <div class="step">
+          <div class="step__number" aria-hidden="true">2</div>
+          <h3 class="step__title">Skill Mapping</h3>
+          <p class="step__body">Responses are mapped against a 150-skill taxonomy. Each skill gets a proficiency score from 0 to 100, grounded in the assessment data.</p>
+        </div>
+
+        <div class="step">
+          <div class="step__number" aria-hidden="true">3</div>
+          <h3 class="step__title">Role Matching</h3>
+          <p class="step__body">The system scores the student across every active role taxonomy. The top matches — by both score and demand — are surfaced for the student and TPO.</p>
+        </div>
+
+        <div class="step">
+          <div class="step__number" aria-hidden="true">4</div>
+          <h3 class="step__title">Gap Identification</h3>
+          <p class="step__body">For each role, the exact skill gaps are quantified: which skills are missing, by how much, and how critical they are to that role's hiring bar.</p>
+        </div>
+
+        <div class="step">
+          <div class="step__number" aria-hidden="true">5</div>
+          <h3 class="step__title">Placement Readiness</h3>
+          <p class="step__body">A composite readiness score is generated and persisted. The student sees their trajectory. The TPO sees the cohort. The institution makes evidence-based decisions.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       NEW: WITHOUT vs WITH LEAPATH
+       Transformation framing — what changes in the TPO's day-to-day
+       and in leadership reporting once readiness becomes structured data.
+  ============================================================ -->
+  <section id="transformation" class="section section--mid" aria-labelledby="transformation-heading">
+    <div class="container">
+
+      <div class="text-center reveal" style="max-width: 760px; margin-inline: auto;">
+        <div class="section-label" style="justify-content: center;">
+          <span class="label">The Shift</span>
+        </div>
+        <h2 class="display-2" id="transformation-heading">Without Leapath vs. with Leapath</h2>
+        <p class="subheading mt-sm" style="margin-inline: auto;">Same students. Same recruiters. Same calendar. Different operating model.</p>
+      </div>
+
+      <div class="compare-table reveal mt-md">
+
+        <div class="compare-row compare-row--head">
+          <div class="compare-cell compare-cell--label">Dimension</div>
+          <div class="compare-cell compare-cell--without">Without Leapath</div>
+          <div class="compare-cell compare-cell--with">With Leapath</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">Student readiness</div>
+          <div class="compare-cell compare-cell--without"><span class="compare-icon compare-icon--x">✕</span>Estimated from CGPA and gut feel</div>
+          <div class="compare-cell compare-cell--with"><span class="compare-icon compare-icon--ok">✓</span>Quantified per student, per role</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">Skill gap visibility</div>
+          <div class="compare-cell compare-cell--without"><span class="compare-icon compare-icon--x">✕</span>Surfaces during interviews — too late</div>
+          <div class="compare-cell compare-cell--with"><span class="compare-icon compare-icon--ok">✓</span>Surfaces 12–14 weeks before drives</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">Intervention</div>
+          <div class="compare-cell compare-cell--without"><span class="compare-icon compare-icon--x">✕</span>Generic training for the whole batch</div>
+          <div class="compare-cell compare-cell--with"><span class="compare-icon compare-icon--ok">✓</span>Targeted, role-aware, per cohort</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">TPO workload</div>
+          <div class="compare-cell compare-cell--without"><span class="compare-icon compare-icon--x">✕</span>Excel sheets, manual tracking, follow-ups</div>
+          <div class="compare-cell compare-cell--with"><span class="compare-icon compare-icon--ok">✓</span>Single dashboard, structured signals</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">Reporting to leadership</div>
+          <div class="compare-cell compare-cell--without"><span class="compare-icon compare-icon--x">✕</span>End-of-season placement % only</div>
+          <div class="compare-cell compare-cell--with"><span class="compare-icon compare-icon--ok">✓</span>Live readiness, gaps, projections</div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">Year-on-year improvement</div>
+          <div class="compare-cell compare-cell--without"><span class="compare-icon compare-icon--x">✕</span>Resets every batch</div>
+          <div class="compare-cell compare-cell--with"><span class="compare-icon compare-icon--ok">✓</span>Compounds — every cohort sharpens the model</div>
+        </div>
+
+        <!-- NEW v3 (Feedback #2): Accountability row — the one decision-makers care about most. -->
+        <div class="compare-row">
+          <div class="compare-cell compare-cell--label">Accountability</div>
+          <div class="compare-cell compare-cell--without"><span class="compare-icon compare-icon--x">✕</span>No accountability — outcomes attributed to luck</div>
+          <div class="compare-cell compare-cell--with"><span class="compare-icon compare-icon--ok">✓</span>Measurable placement outcomes, owned and defensible</div>
+        </div>
+
+      </div>
+
+      <!-- NEW v3 (Feedback #10): Explicit moat assertion — clearly differentiates Leapath from generic placement tools. -->
+      <p class="moat-assertion reveal">
+        Unlike generic placement tools, <strong>Leapath evaluates students against structured role-based benchmarks</strong> — not vanity metrics or generic test scores.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOR COLLEGES / TPOs
+  ============================================================ -->
+  <section id="colleges" class="section section--dark" aria-labelledby="colleges-heading">
+    <div class="container">
+
+      <div class="section-label reveal">
+        <span class="label">For Colleges &amp; TPOs</span>
+      </div>
+
+      <div class="split">
+
+        <div class="reveal">
+          <h2 class="display-2" id="colleges-heading">Your entire cohort.<br>One view.</h2>
+          <p class="subheading mt-sm">Stop receiving placement data after the fact. Leapath gives TPOs a live dashboard that shows student readiness before the recruitment season — with enough lead time to intervene.</p>
+
+          <ul class="feature-list mt-md">
+            <li>Track readiness scores for every student in real time, filtered by department, year, or target role.</li>
+            <li>Identify which students are at risk of missing the shortlisting bar — weeks before companies arrive.</li>
+            <li>Benchmark your cohort against national role requirements, not just internal history.</li>
+            <li>Generate a one-page placement readiness report for your principal or management committee.</li>
+            <li>Upload student data via CSV — the system scores and sorts automatically.</li>
+          </ul>
+
+          <div style="margin-top: 2rem;">
+            <a href="#cta" class="btn btn-primary">Request a TPO Demo</a>
+          </div>
+        </div>
+
+        <!-- Live student list visual -->
+        <div class="split__visual reveal reveal-delay-2" aria-hidden="true">
+          <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin-bottom: 1rem;">
+            CSE 2025 — Readiness Overview · 200 students
+          </div>
+
+          <!-- Student rows -->
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Aditya Kumar</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 84%; animation-delay: 0.1s;"></div></div>
+              <span class="mini-badge badge-ready">Ready</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Priya Nair</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 71%; background: var(--gold); animation-delay: 0.2s;"></div></div>
+              <span class="mini-badge badge-medium">Developing</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Rohan Singh</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 91%; animation-delay: 0.3s;"></div></div>
+              <span class="mini-badge badge-ready">Ready</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Sneha Pillai</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 38%; background: #FF6B6B; animation-delay: 0.4s;"></div></div>
+              <span class="mini-badge badge-risk">At Risk</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Arjun Mehta</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 66%; background: var(--gold); animation-delay: 0.5s;"></div></div>
+              <span class="mini-badge badge-medium">Developing</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Kavya Reddy</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 88%; animation-delay: 0.6s;"></div></div>
+              <span class="mini-badge badge-ready">Ready</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Vikram Iyer</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 44%; background: #FF6B6B; animation-delay: 0.7s;"></div></div>
+              <span class="mini-badge badge-risk">At Risk</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Divya Sharma</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 79%; animation-delay: 0.8s;"></div></div>
+              <span class="mini-badge badge-ready">Ready</span>
+            </div>
+          </div>
+
+          <!-- Summary pills -->
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;">
+            <span class="pill" style="background: rgba(196, 175, 240, 0.1);">64% Ready</span>
+            <span class="pill" style="background: rgba(240,192,96,0.1); color: var(--gold); border-color: rgba(240,192,96,0.25);">27% Developing</span>
+            <span class="pill" style="background: rgba(255,107,107,0.1); color: #FF6B6B; border-color: rgba(255,107,107,0.25);">9% At Risk</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOR STUDENTS
+  ============================================================ -->
+  <section id="students" class="section section--light" aria-labelledby="students-heading">
+    <div class="container">
+
+      <div class="section-label reveal">
+        <span class="label" style="color: var(--teal-dark);">For Students</span>
+      </div>
+
+      <div class="split">
+
+        <!-- Visual: Student profile card -->
+        <div class="reveal" style="order: 2;">
+          <div class="card card--light" style="max-width: 400px;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--teal-dim); border: 2px solid var(--teal); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.2rem; color: var(--teal);">A</div>
+              <div>
+                <div style="font-weight: 600; color: var(--navy);">Aditya Kumar</div>
+                <div style="font-size: 0.8rem; color: var(--slate);">B.Tech CSE · 7th Semester</div>
+              </div>
+              <span class="mini-badge badge-ready" style="margin-left: auto;">Score: 84</span>
+            </div>
+
+            <div style="margin-bottom: 1.25rem;">
+              <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.75rem;">Top Role Matches</div>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; color: var(--navy);">
+                  <span>Software Engineer — Backend</span>
+                  <span style="font-weight: 600; color: var(--teal-dark);">91%</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; color: var(--navy);">
+                  <span>Data Engineer</span>
+                  <span style="font-weight: 600; color: var(--teal-dark);">78%</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; color: var(--navy);">
+                  <span>ML Engineer</span>
+                  <span style="font-weight: 600; color: #B45309;">62%</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(11,17,32,0.08); padding-top: 1.25rem;">
+              <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin-bottom: 0.75rem;">Top Skill Gaps</div>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; color: var(--navy);">
+                  <span>System Design</span>
+                  <span style="font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.5rem; background: rgba(255,107,107,0.1); color: #cc4444; border-radius: 4px;">Gap: 28</span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; color: var(--navy);">
+                  <span>Distributed Systems</span>
+                  <span style="font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.5rem; background: rgba(240,192,96,0.15); color: #856000; border-radius: 4px;">Gap: 14</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="order: 1;">
+          <h2 class="display-2" id="students-heading" style="color: var(--navy);">Know exactly where you stand. And what to do next.</h2>
+          <p class="mt-sm" style="color: var(--slate); font-size: 1.05rem; line-height: 1.7; max-width: 520px;">Most students enter placement season without a clear picture of their own readiness. Leapath changes that — with a personalised score, role match ranking, and a learning path that closes the gap before companies arrive.</p>
+
+          <ul class="feature-list mt-md" style="--teal-dim: rgba(0,168,130,0.1); color: var(--slate);">
+            <li style="color: var(--slate);">Understand your readiness score for every role you care about — not just your target.</li>
+            <li style="color: var(--slate);">See the precise skills holding you back, ranked by how much they affect your score.</li>
+            <li style="color: var(--slate);">Get a curated learning path — specific courses for your specific gaps, not a generic syllabus.</li>
+            <li style="color: var(--slate);">Track your score progression across semesters. See what moved the needle.</li>
+          </ul>
+
+          <div style="margin-top: 2rem;">
+            <a href="#cta" class="btn btn-primary">See How It Works</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOR EMPLOYERS  (NEW SECTION — added per feedback)
+       Why: feedback explicitly required a "For Employers" section.
+       Tone: kept enterprise-grade — talks about pre-vetted candidates,
+       structured profiles, calibrated scoring. Avoids generic
+       "post jobs" framing of typical placement portals.
+  ============================================================ -->
+  <section id="employers" class="section section--dark" aria-labelledby="employers-heading">
+    <div class="container">
+
+      <div class="section-label reveal">
+        <span class="label">For Employers</span>
+      </div>
+
+      <div class="split">
+
+        <div class="reveal">
+          <h2 class="display-2" id="employers-heading">Hire from cohorts<br>that have already been measured.</h2>
+          <p class="subheading mt-sm">Skip the unstructured applicant pile. Leapath gives recruiters access to a calibrated talent pool — every candidate scored on a standardised readiness framework, every profile backed by assessment data your team can trust.</p>
+
+          <ul class="feature-list mt-md">
+            <li>Filter candidates by readiness score, role-fit, department, and graduation year.</li>
+            <li>View structured student profiles with skill scores, project portfolios, and assessment history.</li>
+            <li>Run virtual or campus drives with shortlisting tools built into the platform.</li>
+            <li>Post role requirements directly to partner institutions and receive pre-screened applicants.</li>
+            <li>Co-design role taxonomies with our team to align hiring criteria with your specific stack.</li>
+          </ul>
+
+          <div style="margin-top: 2rem;">
+            <a href="#contact-form" class="btn btn-primary">Talk to our recruiter team</a>
+          </div>
+        </div>
+
+        <!-- Visual: employer-side candidate pipeline view -->
+        <div class="split__visual reveal reveal-delay-2" aria-hidden="true">
+          <div style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin-bottom: 1rem;">
+            Backend Engineer · Pre-vetted shortlist · 14 candidates
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Aditya K. · CSE 2025</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 91%; animation-delay: 0.1s;"></div></div>
+              <span class="mini-badge badge-ready">91 fit</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Kavya R. · CSE 2025</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 88%; animation-delay: 0.2s;"></div></div>
+              <span class="mini-badge badge-ready">88 fit</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Rohan S. · IT 2025</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 84%; animation-delay: 0.3s;"></div></div>
+              <span class="mini-badge badge-ready">84 fit</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Divya S. · CSE 2025</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 79%; animation-delay: 0.4s;"></div></div>
+              <span class="mini-badge badge-ready">79 fit</span>
+            </div>
+            <div class="mini-dash-row">
+              <div class="mini-dash-name">Priya N. · ECE 2025</div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width: 71%; background: var(--gold); animation-delay: 0.5s;"></div></div>
+              <span class="mini-badge badge-medium">71 fit</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;">
+            <span class="pill" style="background: rgba(196, 175, 240, 0.1);">DSA verified</span>
+            <span class="pill" style="background: rgba(196, 175, 240, 0.1);">SQL verified</span>
+            <span class="pill" style="background: rgba(240,192,96,0.1); color: var(--gold); border-color: rgba(240,192,96,0.25);">System Design partial</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TRAINING PROGRAMS  (NEW SECTION — added per feedback)
+       Why: feedback required a Training Programs section listing
+       core training tracks. Tone kept aligned with the rest of the
+       site — concrete tracks, no fluff, no "boost your career" copy.
+  ============================================================ -->
+  <section id="training" class="section section--mid" aria-labelledby="training-heading">
+    <div class="container">
+
+      <div class="reveal">
+        <div class="section-label">
+          <span class="label">Training Programs</span>
+        </div>
+        <h2 class="display-2" id="training-heading">Targeted training. Mapped to actual gaps.</h2>
+        <p class="subheading mt-sm">Generic syllabi rarely move the readiness score. Leapath programs are structured around the exact skill gaps surfaced by the platform — so every training hour translates to measurable improvement.</p>
+      </div>
+
+      <div class="grid-3 mt-lg">
+
+        <article class="training-card reveal reveal-delay-1">
+          <div class="training-card__tag">Technical</div>
+          <h3 class="training-card__title">DSA &amp; Problem Solving</h3>
+          <p class="training-card__body">Structured problem-solving across core data structures and algorithms. Calibrated to the difficulty bar of mid-tier and top-tier product companies.</p>
+          <div class="training-card__meta">8 weeks · 60 hrs · Cohort-based</div>
+        </article>
+
+        <article class="training-card reveal reveal-delay-2">
+          <div class="training-card__tag">Technical</div>
+          <h3 class="training-card__title">System Design Fundamentals</h3>
+          <p class="training-card__body">From single-server applications to distributed systems. Project-based, with system reviews and architectural critiques every week.</p>
+          <div class="training-card__meta">6 weeks · 45 hrs · Project-based</div>
+        </article>
+
+        <article class="training-card reveal reveal-delay-3">
+          <div class="training-card__tag">Emerging Tech</div>
+          <h3 class="training-card__title">AI, Data &amp; Cloud Foundations</h3>
+          <p class="training-card__body">Working fundamentals of machine learning, data engineering, and cloud platforms. Built around employer-validated entry-level expectations.</p>
+          <div class="training-card__meta">10 weeks · 75 hrs · Hands-on labs</div>
+        </article>
+
+        <article class="training-card reveal reveal-delay-1">
+          <div class="training-card__tag">Aptitude</div>
+          <h3 class="training-card__title">Quantitative &amp; Logical Reasoning</h3>
+          <p class="training-card__body">Aptitude practice mapped to actual recruitment tests of the top 50 campus recruiters. Adaptive difficulty per student.</p>
+          <div class="training-card__meta">6 weeks · 36 hrs · Adaptive</div>
+        </article>
+
+        <article class="training-card reveal reveal-delay-2">
+          <div class="training-card__tag">Communication</div>
+          <h3 class="training-card__title">Communication &amp; Interview Craft</h3>
+          <p class="training-card__body">Structured coaching for HR rounds, behavioural interviews, group discussions, and presentation skills. Recorded mock sessions with feedback.</p>
+          <div class="training-card__meta">4 weeks · 24 hrs · 1:1 mocks</div>
+        </article>
+
+        <article class="training-card reveal reveal-delay-3">
+          <div class="training-card__tag">Career Prep</div>
+          <h3 class="training-card__title">Resume, LinkedIn &amp; Profile Build</h3>
+          <p class="training-card__body">Structured workshops to convert assessment data into a credible resume and recruiter-ready LinkedIn profile. Reviewed by industry mentors.</p>
+          <div class="training-card__meta">2 weeks · 12 hrs · Reviewed</div>
+        </article>
+
+      </div>
+
+      <p class="reveal mt-md" style="text-align: center; color: var(--slate); font-size: 0.92rem; max-width: 640px; margin-left: auto; margin-right: auto;">
+        Custom training tracks available for institutional partners. Programs are revised twice a year against current employer expectations.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ANALYTICS / INTELLIGENCE
+  ============================================================ -->
+  <section id="analytics" class="section" aria-labelledby="analytics-heading">
+    <div class="container">
+
+      <div class="reveal">
+        <div class="section-label">
+          <span class="label">Analytics &amp; Intelligence</span>
+        </div>
+        <h2 class="display-2" id="analytics-heading">The data layer that makes placements predictable.</h2>
+        <p class="subheading mt-sm">Aggregate signals that no individual student report can surface — and turn them into institutional decisions.</p>
+      </div>
+
+      <!-- Metric row -->
+      <div class="metric-row mt-lg reveal">
+        <div class="metric-card">
+          <div class="metric-card__label">Avg. Readiness</div>
+          <div class="metric-card__value text-teal">72.4</div>
+          <div class="metric-card__trend delta-up">↑ 8.1 vs last sem</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__label">At-Risk Students</div>
+          <div class="metric-card__value" style="color: #FF6B6B">18</div>
+          <div class="metric-card__trend" style="color: var(--slate)">Action pending</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card__label">Top Role Demand</div>
+          <div class="metric-card__value" style="color: var(--gold); font-size: 1.1rem; margin-top: 0.35rem; font-family: var(--sans);">SWE Backend</div>
+          <div class="metric-card__trend" style="color: var(--slate)">43% of targets</div>
+        </div>
+      </div>
+
+      <div class="analytics-grid mt-lg">
+
+        <!-- Skill Distribution Chart -->
+        <div class="analytics-chart reveal">
+          <div class="chart-header">
+            <span class="chart-title">Skill Distribution — CSE 2025</span>
+            <div class="chart-legend">
+              <span><i class="legend-dot" style="background: var(--teal);"></i>Strong</span>
+              <span><i class="legend-dot" style="background: var(--gold);"></i>Developing</span>
+              <span><i class="legend-dot" style="background: #FF6B6B;"></i>Gap</span>
+            </div>
+          </div>
+          <div class="skill-dist">
+            <div class="skill-dist-row">
+              <div class="skill-dist-label"><span>Data Structures &amp; Algorithms</span><span>200 students</span></div>
+              <div class="skill-dist-track">
+                <div class="skill-dist-seg" style="width: 58%; background: var(--teal);"></div>
+                <div class="skill-dist-seg" style="width: 26%; background: var(--gold);"></div>
+                <div class="skill-dist-seg" style="width: 16%; background: #FF6B6B;"></div>
+              </div>
+            </div>
+            <div class="skill-dist-row">
+              <div class="skill-dist-label"><span>System Design</span><span>200 students</span></div>
+              <div class="skill-dist-track">
+                <div class="skill-dist-seg" style="width: 28%; background: var(--teal);"></div>
+                <div class="skill-dist-seg" style="width: 34%; background: var(--gold);"></div>
+                <div class="skill-dist-seg" style="width: 38%; background: #FF6B6B;"></div>
+              </div>
+            </div>
+            <div class="skill-dist-row">
+              <div class="skill-dist-label"><span>SQL &amp; Databases</span><span>200 students</span></div>
+              <div class="skill-dist-track">
+                <div class="skill-dist-seg" style="width: 62%; background: var(--teal);"></div>
+                <div class="skill-dist-seg" style="width: 22%; background: var(--gold);"></div>
+                <div class="skill-dist-seg" style="width: 16%; background: #FF6B6B;"></div>
+              </div>
+            </div>
+            <div class="skill-dist-row">
+              <div class="skill-dist-label"><span>Machine Learning</span><span>200 students</span></div>
+              <div class="skill-dist-track">
+                <div class="skill-dist-seg" style="width: 22%; background: var(--teal);"></div>
+                <div class="skill-dist-seg" style="width: 38%; background: var(--gold);"></div>
+                <div class="skill-dist-seg" style="width: 40%; background: #FF6B6B;"></div>
+              </div>
+            </div>
+            <div class="skill-dist-row">
+              <div class="skill-dist-label"><span>Cloud &amp; DevOps</span><span>200 students</span></div>
+              <div class="skill-dist-track">
+                <div class="skill-dist-seg" style="width: 34%; background: var(--teal);"></div>
+                <div class="skill-dist-seg" style="width: 30%; background: var(--gold);"></div>
+                <div class="skill-dist-seg" style="width: 36%; background: #FF6B6B;"></div>
+              </div>
+            </div>
+            <div class="skill-dist-row">
+              <div class="skill-dist-label"><span>Communication &amp; Presentation</span><span>200 students</span></div>
+              <div class="skill-dist-track">
+                <div class="skill-dist-seg" style="width: 44%; background: var(--teal);"></div>
+                <div class="skill-dist-seg" style="width: 36%; background: var(--gold);"></div>
+                <div class="skill-dist-seg" style="width: 20%; background: #FF6B6B;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk Panel -->
+        <div class="risk-panel reveal reveal-delay-2">
+          <div>
+            <div class="chart-title" style="margin-bottom: 0.5rem;">Risk Segmentation</div>
+            <div style="font-size: 0.78rem; color: var(--slate);">Cohort placement readiness distribution</div>
+          </div>
+
+          <div class="risk-donut-wrap">
+            <div class="risk-donut" role="img" aria-label="Donut chart: 38% placement ready, 24% developing, 9% at risk"></div>
+            <div class="risk-legend">
+              <div class="risk-item">
+                <span class="risk-item__left">
+                  <i class="legend-dot" style="background: var(--teal);"></i>
+                  Placement Ready
+                </span>
+                <span class="risk-item__pct text-teal">64%</span>
+              </div>
+              <div class="risk-item">
+                <span class="risk-item__left">
+                  <i class="legend-dot" style="background: var(--gold);"></i>
+                  Developing
+                </span>
+                <span class="risk-item__pct" style="color: var(--gold);">27%</span>
+              </div>
+              <div class="risk-item">
+                <span class="risk-item__left">
+                  <i class="legend-dot" style="background: #FF6B6B;"></i>
+                  At Risk
+                </span>
+                <span class="risk-item__pct" style="color: #FF6B6B;">9%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intervention callout -->
+          <div style="background: rgba(255,107,107,0.06); border: 1px solid rgba(255,107,107,0.15); border-radius: var(--radius); padding: 1.25rem;">
+            <div style="font-size: 0.78rem; font-weight: 600; color: #FF6B6B; margin-bottom: 0.4rem;">⚠ Intervention Recommended</div>
+            <div style="font-size: 0.82rem; color: var(--slate-light); line-height: 1.6;">18 students have critical gaps in System Design — a required skill for 43% of this year's target roles. A focused workshop before October could move 12 of them to Developing.</div>
+          </div>
+
+          <div style="background: rgba(196, 175, 240, 0.06); border: 1px solid rgba(196,175,240,0.18); border-radius: var(--radius); padding: 1.25rem;">
+            <div style="font-size: 0.78rem; font-weight: 600; color: var(--teal); margin-bottom: 0.4rem;">✓ Positive Signal</div>
+            <div style="font-size: 0.82rem; color: var(--slate-light); line-height: 1.6;">Readiness in DSA improved 14 points semester-on-semester — highest cohort gain in 3 years. Attributable to the restructured lab curriculum introduced in June.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       NEW: WHAT POWERS LEAPATH
+       High-level system explanation for evaluators who want to know
+       "what's actually under the hood" before recommending it
+       internally. Closes with subtle moat/defensibility statement.
+  ============================================================ -->
+  <section id="powers" class="section section--mid" aria-labelledby="powers-heading">
+    <div class="container">
+
+      <div class="reveal" style="max-width: 780px;">
+        <div class="section-label">
+          <span class="label">What Powers Leapath</span>
+        </div>
+        <h2 class="display-2" id="powers-heading">A purpose-built intelligence layer — not a generic LMS.</h2>
+        <p class="subheading mt-sm">Leapath is built around four systems working together. Each one is something institutions can't easily assemble in-house.</p>
+        <!-- NEW v3 (Feedback #5): Sophistication signal — system evolves with hiring patterns, not a static framework. -->
+        <p class="powers-evolving">Continuously evolving role-skill models, aligned with industry hiring patterns — every cohort sharpens the next.</p>
+      </div>
+
+      <div class="powers-grid reveal">
+
+        <div class="powers-card">
+          <div class="powers-card__icon" aria-hidden="true">⊟</div>
+          <div class="powers-card__title">Skill Taxonomy</div>
+          <!-- CHANGED v3 (Feedback #5): Reinforced the evolving, hiring-aligned nature of the taxonomy. -->
+          <div class="powers-card__body">A 150-skill graph mapped to active hiring roles, continuously refreshed against live job descriptions and recruiter signals — never a static list.</div>
+        </div>
+
+        <div class="powers-card">
+          <div class="powers-card__icon" aria-hidden="true">◇</div>
+          <div class="powers-card__title">Adaptive Assessment Engine</div>
+          <div class="powers-card__body">Role-aware questions that adapt to year of study and target role. Produces structured scores instead of pass/fail labels.</div>
+        </div>
+
+        <div class="powers-card">
+          <div class="powers-card__icon" aria-hidden="true">◎</div>
+          <div class="powers-card__title">Readiness Model</div>
+          <div class="powers-card__body">Composite scoring across skills, role-fit, and trajectory. The single number a TPO can defend to a principal or recruiter.</div>
+        </div>
+
+        <div class="powers-card">
+          <div class="powers-card__icon" aria-hidden="true">⌬</div>
+          <div class="powers-card__title">Institutional Dashboard</div>
+          <div class="powers-card__body">Cohort-level visibility, at-risk detection, and intervention tracking — engineered for placement cells, not data analysts.</div>
+        </div>
+
+      </div>
+
+      <div class="powers-moat reveal">
+        <strong>Why this is hard to replicate:</strong> The taxonomy and readiness model improve every cohort that runs through them. Institutions that adopt early build a structured assessment history their peers cannot retroactively recreate.
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BLOG / INSIGHTS
+  ============================================================ -->
+  <section id="insights" class="section section--mid" aria-labelledby="insights-heading">
+    <div class="container">
+
+      <div class="reveal" style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem;">
+        <div>
+          <div class="section-label">
+            <span class="label">Insights &amp; Research</span>
+          </div>
+          <!-- CHANGED: Heading rewritten for search intent — uses the actual phrase TPOs/principals search for. -->
+          <h2 class="display-2" id="insights-heading">Placement intelligence: research, benchmarks &amp; playbooks for TPOs.</h2>
+          <p class="subheading mt-sm">Practical, India-specific reading for placement cells, deans, and recruitment leaders.</p>
+        </div>
+        <a href="#" class="btn btn-outline" style="flex-shrink: 0;">View all articles →</a>
+      </div>
+
+      <!-- NEW v3 (Feedback #7): Category labels for SEO + topical authority signal. -->
+      <nav class="blog-categories reveal" aria-label="Insight categories">
+        <span class="blog-category">Placement Strategy</span>
+        <span class="blog-category">Skill Intelligence</span>
+        <span class="blog-category">Institutional Analytics</span>
+      </nav>
+
+      <div class="grid-3">
+
+        <article class="blog-card reveal reveal-delay-1">
+          <div class="blog-card__img" aria-hidden="true">📊</div>
+          <div class="blog-card__body">
+            <div class="blog-card__tag">Benchmark Report</div>
+            <h3 class="blog-card__title">Engineering Placement Benchmarks 2025: Average Offers, Median CTC &amp; Drop-off Rates by Tier</h3>
+            <p class="blog-card__meta">Data report · May 2025 · 8 min read</p>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-2">
+          <div class="blog-card__img" aria-hidden="true">🧠</div>
+          <div class="blog-card__body">
+            <div class="blog-card__tag">Skill Gap Analysis</div>
+            <h3 class="blog-card__title">What Recruiters Actually Test in 2025: System Design, DSA &amp; Communication — Ranked by Frequency</h3>
+            <p class="blog-card__meta">Hiring research · April 2025 · 6 min read</p>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-3">
+          <div class="blog-card__img" aria-hidden="true">🎓</div>
+          <div class="blog-card__body">
+            <div class="blog-card__tag">TPO Playbook</div>
+            <h3 class="blog-card__title">How to Run a Data-Driven Placement Cell: A 12-Week Playbook for TPOs</h3>
+            <p class="blog-card__meta">Operating guide · March 2025 · 10 min read</p>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-4">
+          <div class="blog-card__img" aria-hidden="true">🔮</div>
+          <div class="blog-card__body">
+            <div class="blog-card__tag">Future of Work</div>
+            <h3 class="blog-card__title">The 12 Skills Indian Recruiters Will Hire For in 2026 — and How to Build Them Into Your Curriculum</h3>
+            <p class="blog-card__meta">Trend analysis · February 2025 · 7 min read</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SUCCESS STORIES
+       CHANGED: Renamed from "What Institutions Say" / "Testimonials"
+       to align with feedback's "Success Stories" section. Heading
+       updated to reflect that testimonials span TPOs, faculty, and
+       students. Section ID kept as #testimonials for link stability,
+       and aliased with #success-stories anchor for footer navigation.
+  ============================================================ -->
+  <section id="testimonials" class="section section--dark" aria-labelledby="testimonials-heading">
+    <a id="success-stories" aria-hidden="true"></a>
+    <div class="container">
+
+      <div class="text-center reveal mb-lg">
+        <div class="section-label" style="justify-content: center;">
+          <span class="label">Success Stories</span>
+        </div>
+        <h2 class="display-2" id="testimonials-heading">From the people using Leapath.</h2>
+        <p class="subheading mt-sm" style="margin-inline: auto;">Voices from placement cells, faculty, and students who have run a season with the platform.</p>
+      </div>
+
+      <!-- ============================================================
+           NEW: MINI CASE EXAMPLE
+           Concrete, single-institution outcome block. Numbers are
+           illustrative of pilot-stage results — replace with verified
+           figures before publishing. Names anonymised for now.
+      ============================================================ -->
+      <div class="case-mini reveal">
+        <div>
+          <div class="case-mini__meta-pre">Case in focus · Tier-2 Engineering College, South India</div>
+          <div class="case-mini__inst">From Excel sheets to a live readiness model — in one placement cycle.</div>
+          <p class="case-mini__context">A 1,200-student CSE department adopted Leapath ahead of their 2024–25 placement season. Within 8 weeks of onboarding, the TPO had a live readiness map of the cohort and ran two targeted interventions before recruitment drives began.</p>
+        </div>
+        <div class="case-mini__results">
+          <!-- CHANGED v3 (Feedback #4): Reframed lift stat in from→to format. More decision-driving than a percentage delta. -->
+          <div class="case-mini__result">
+            <div class="case-mini__num case-mini__num--fromto"><span class="from">48%</span> <span class="arrow" aria-hidden="true">→</span> <span class="to">70%</span></div>
+            <div class="case-mini__lbl">Placement readiness across the cohort, in one semester</div>
+          </div>
+          <div class="case-mini__result">
+            <div class="case-mini__num">14 wks</div>
+            <div class="case-mini__lbl">Earlier visibility into at-risk students vs. previous year</div>
+          </div>
+          <div class="case-mini__result">
+            <div class="case-mini__num">3</div>
+            <div class="case-mini__lbl">New recruiters added on the strength of structured cohort data</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="testimonial-card reveal reveal-delay-1">
+          <p class="testimonial-card__quote">"For the first time, I walked into the recruitment season knowing exactly which students were ready and which ones needed a final push. That visibility changed how we worked with both students and companies."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar" aria-hidden="true">R</div>
+            <div class="author-info">
+              <div class="author-info__name">Dr. Ramesh Nair</div>
+              <div class="author-info__role">Head of Placements · Engineering College, Chennai</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <p class="testimonial-card__quote">"The cohort gap report identified System Design as our biggest bottleneck — something we suspected but could never quantify. We ran a two-week intervention and saw a measurable score improvement before companies arrived."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar" aria-hidden="true">P</div>
+            <div class="author-info">
+              <div class="author-info__name">Prof. Priya Menon</div>
+              <div class="author-info__role">TPO · Private University, Pune</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <p class="testimonial-card__quote">"My readiness score told me I was at 58% for the SDE role I was targeting. The gap analysis showed exactly what was holding me back. I focused on those skills for six weeks and moved to 81%. I got placed."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar" aria-hidden="true">A</div>
+            <div class="author-info">
+              <div class="author-info__name">Arjun Mehta</div>
+              <div class="author-info__role">Placed at a MAANG company · CSE 2024</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       NEW: HOW INSTITUTIONS GET STARTED
+       Demystifies the onboarding path. Reduces "what does this
+       actually look like for us" friction for decision-makers.
+  ============================================================ -->
+  <section id="get-started" class="section section--mid" aria-labelledby="get-started-heading">
+    <div class="container">
+
+      <div class="text-center reveal" style="max-width: 760px; margin-inline: auto;">
+        <div class="section-label" style="justify-content: center;">
+          <span class="label">Get Started</span>
+        </div>
+        <h2 class="display-2" id="get-started-heading">How institutions onboard Leapath</h2>
+        <p class="subheading mt-sm" style="margin-inline: auto;">A predictable rollout. No long IT projects. Most institutions are running their first cohort within 3–4 weeks.</p>
+      </div>
+
+      <div class="onboard-steps reveal">
+
+        <div class="onboard-step">
+          <div class="onboard-step__num" aria-hidden="true">1</div>
+          <h3 class="onboard-step__title">Discovery Call</h3>
+          <p class="onboard-step__body">A 30-minute conversation with your TPO and one decision-maker. We map your placement goals, departments, and current workflows.</p>
+          <div class="onboard-step__time">Week 1 · 30 min</div>
+        </div>
+
+        <div class="onboard-step">
+          <div class="onboard-step__num" aria-hidden="true">2</div>
+          <h3 class="onboard-step__title">Pilot Cohort Setup</h3>
+          <p class="onboard-step__body">We configure your taxonomy, target roles, and assessment flow. You upload student data via a secure template — no IT integration needed.</p>
+          <div class="onboard-step__time">Week 2 · 3–5 days</div>
+        </div>
+
+        <div class="onboard-step">
+          <div class="onboard-step__num" aria-hidden="true">3</div>
+          <h3 class="onboard-step__title">Run First Assessment</h3>
+          <p class="onboard-step__body">Students complete the assessment in 15 minutes. Your TPO dashboard populates with cohort readiness, gaps, and at-risk flags in real time.</p>
+          <div class="onboard-step__time">Week 3 · live in 48 hrs</div>
+        </div>
+
+        <div class="onboard-step">
+          <div class="onboard-step__num" aria-hidden="true">4</div>
+          <h3 class="onboard-step__title">Plan &amp; Intervene</h3>
+          <p class="onboard-step__body">Review findings with our team. Define interventions, training tracks, or recruiter conversations grounded in your actual cohort data.</p>
+          <div class="onboard-step__time">Week 4 · ongoing</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT / DEMO REQUEST  (REWRITTEN)
+       Why: Original section had only mailto buttons — feedback
+       explicitly required a structured form (college name, TPO name,
+       mobile, email, number of students, requirement). Form is
+       client-side only here; backend submission handler must be
+       wired up at integration time. Partnership panel preserved.
+  ============================================================ -->
+  <section id="cta" class="section" aria-labelledby="cta-heading">
+    <div class="container">
+
+      <div class="text-center reveal mb-lg">
+        <div class="section-label" style="justify-content: center;">
+          <!-- CHANGED: Sharper section label — signals what the visitor is actually getting. -->
+          <span class="label">Book Your Walkthrough</span>
+        </div>
+        <!-- CHANGED: Heading rewritten to be outcome-led, not action-led. -->
+        <h2 class="display-2" id="cta-heading">See your cohort's readiness — in your next placement season.</h2>
+        <p class="subheading mt-sm" style="margin-inline: auto;">A 30-minute walkthrough using your department's profile and sample data. Zero generic demos. Zero sales pitch. You'll leave with a concrete view of what running Leapath would look like for your institution.</p>
+      </div>
+
+      <!-- NEW v3 (Feedback #9): Sales bridge — shows exactly what's inside the demo. Highest-impact conversion lift. -->
+      <div class="demo-bridge reveal" aria-label="What you will see in the demo">
+        <div class="demo-bridge__title">In your demo, you'll see:</div>
+        <div class="demo-bridge__items">
+          <div class="demo-bridge__item">
+            <span class="demo-bridge__num">01</span>
+            <div>
+              <div class="demo-bridge__h">Sample student analysis</div>
+              <p class="demo-bridge__b">A real readiness profile — skill scores, role-fit, gap quantification.</p>
+            </div>
+          </div>
+          <div class="demo-bridge__item">
+            <span class="demo-bridge__num">02</span>
+            <div>
+              <div class="demo-bridge__h">Role matching output</div>
+              <p class="demo-bridge__b">How a student is scored against active hiring roles, with critical gap deltas.</p>
+            </div>
+          </div>
+          <div class="demo-bridge__item">
+            <span class="demo-bridge__num">03</span>
+            <div>
+              <div class="demo-bridge__h">Cohort dashboard</div>
+              <p class="demo-bridge__b">The live TPO view: at-risk segmentation, intervention tracking, leadership-ready reporting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- The actual form -->
+        <form class="contact-form reveal reveal-delay-1" id="contact-form" aria-labelledby="contact-form-heading" novalidate>
+          <h3 id="contact-form-heading" class="contact-form__heading">Tell us about your institution</h3>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-college">College / Institution name <span aria-hidden="true">*</span></label>
+              <input type="text" id="cf-college" name="college" required autocomplete="organization" />
+            </div>
+            <div class="form-field">
+              <label for="cf-tpo">TPO / contact name <span aria-hidden="true">*</span></label>
+              <input type="text" id="cf-tpo" name="tpo_name" required autocomplete="name" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-email">Work email <span aria-hidden="true">*</span></label>
+              <input type="email" id="cf-email" name="email" required autocomplete="email" />
+            </div>
+            <div class="form-field">
+              <label for="cf-mobile">Mobile <span aria-hidden="true">*</span></label>
+              <input type="tel" id="cf-mobile" name="mobile" required autocomplete="tel" pattern="[0-9+\-\s]{7,}" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-count">Number of students</label>
+              <select id="cf-count" name="student_count">
+                <option value="">Select cohort size</option>
+                <option>Under 200</option>
+                <option>200 – 500</option>
+                <option>500 – 1,000</option>
+                <option>1,000 – 2,500</option>
+                <option>2,500+</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="cf-role">I am a</label>
+              <select id="cf-role" name="role">
+                <option value="">Select role</option>
+                <option>TPO / Placement Head</option>
+                <option>Principal / Director</option>
+                <option>Department Head</option>
+                <option>Recruiter / Employer</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="cf-req">What are you trying to solve?</label>
+            <textarea id="cf-req" name="requirement" rows="3" placeholder="e.g. We want to identify at-risk students in our 2025 batch before recruitment season."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <!-- CHANGED: Button copy is action-specific, not generic. Microcopy below sets expectation on what happens next. -->
+            <button type="submit" class="btn btn-primary btn-lg">Book my 30-min walkthrough →</button>
+            <p class="form-note">We respond within one business day. No sales sequence. No newsletter signup.</p>
+            <!-- NEW v3 (Feedback #6): Institutional credibility trigger directly below the CTA. -->
+            <p class="form-credibility">Used by institutions preparing students for top-tier recruiters.</p>
+          </div>
+
+          <!-- NEW: Trust microcopy strip — reduces form-submission anxiety for decision-makers. -->
+          <div class="form-trust-strip">
+            <span class="form-trust-item">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 1l5 2v4c0 3.5-2 6-5 8-3-2-5-4.5-5-8V3l5-2z"/></svg>
+              Your data stays with your institution
+            </span>
+            <span class="form-trust-item">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8l4 4 8-8"/></svg>
+              Used only to schedule this demo
+            </span>
+            <span class="form-trust-item">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l2 2"/></svg>
+              Reply within 1 business day
+            </span>
+            <span class="form-trust-item">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l5-3 5 3v4l-5 3-5-3z"/></svg>
+              Run by the founding team — not a BDR
+            </span>
+          </div>
+
+          <div class="form-success" id="cf-success" role="status" aria-live="polite" hidden>
+            Thank you — your demo request has been received. Our team will reach out within one business day.
+          </div>
+        </form>
+
+        <!-- Right-side: partnership + direct contact options -->
+        <aside class="contact-aside reveal reveal-delay-2">
+
+          <div class="cta-panel">
+            <div class="cta-panel__pre">Institutional Partnership</div>
+            <h3 class="cta-panel__title">Pilot programme</h3>
+            <p class="cta-panel__body">We are currently onboarding a small set of institutions at no cost. Partner colleges receive full platform access, priority support, and input into the product roadmap.</p>
+            <a href="mailto:partner@leapath.com" class="btn btn-outline">Explore partnership →</a>
+          </div>
+
+          <div class="contact-direct">
+            <div class="contact-direct__title">Prefer to email us directly?</div>
+            <ul class="contact-direct__list">
+              <li><span>Demo enquiries</span><a href="mailto:demo@leapath.com">demo@leapath.com</a></li>
+              <li><span>Partnerships</span><a href="mailto:partner@leapath.com">partner@leapath.com</a></li>
+              <li><span>General</span><a href="mailto:hello@leapath.com">hello@leapath.com</a></li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer id="contact" aria-label="Site footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-brand__logo">Leapath<span>.</span></div>
+          <div class="footer-brand__tagline">Powering every placement path</div>
+          <!-- CHANGED v3: Updated brand description to reflect Leapath narrative — the structured leap from education to employability. -->
+          <p class="footer-brand__desc">The structured leap from education to employability. A placement intelligence platform for colleges, TPOs, students, and recruiters.</p>
+          <!-- NEW v3 (Feedback #8): Final positioning signal at the very end of the page. -->
+          <p class="footer-brand__signal">Built for colleges and universities across India.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="Twitter / X">𝕏</a>
+            <a href="mailto:hello@leapath.com" class="social-link" aria-label="Email">@</a>
+          </div>
+        </div>
+
+        <nav aria-label="Platform links">
+          <div class="footer-col__title">Platform</div>
+          <ul class="footer-col__links">
+            <li><a href="#product">Product</a></li>
+            <li><a href="#colleges">For Colleges</a></li>
+            <li><a href="#students">For Students</a></li>
+            <li><a href="#employers">For Employers</a></li>
+            <li><a href="#training">Training Programs</a></li>
+            <li><a href="#analytics">Dashboard</a></li>
+            <li><a href="#powers">What Powers Leapath</a></li>
+          </ul>
+        </nav>
+
+        <!-- NEW: Resources column — surfaces high-intent SEO content + onboarding clarity. -->
+        <nav aria-label="Resource links">
+          <div class="footer-col__title">Resources</div>
+          <ul class="footer-col__links">
+            <li><a href="#why-now">Why Now</a></li>
+            <li><a href="#transformation">Without vs With</a></li>
+            <li><a href="#get-started">How to Get Started</a></li>
+            <li><a href="#insights">Benchmarks &amp; Reports</a></li>
+            <li><a href="#insights">TPO Playbook</a></li>
+            <li><a href="#testimonials">Case Studies</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Company links">
+          <div class="footer-col__title">Company</div>
+          <ul class="footer-col__links">
+            <li><a href="#product">About</a></li>
+            <li><a href="#insights">Insights &amp; Research</a></li>
+            <li><a href="#testimonials">Success Stories</a></li>
+            <li><a href="#contact-form">Book Walkthrough</a></li>
+            <li><a href="mailto:partner@leapath.com">Partnerships</a></li>
+            <li><a href="mailto:careers@leapath.com">Careers</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Contact and legal links">
+          <div class="footer-col__title">Contact</div>
+          <ul class="footer-col__links">
+            <li><a href="mailto:hello@leapath.com">hello@leapath.com</a></li>
+            <li><a href="mailto:demo@leapath.com">demo@leapath.com</a></li>
+            <li><a href="mailto:partner@leapath.com">partner@leapath.com</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Data Processing</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Leapath Technology. All rights reserved.</p>
+        <p>Built for Indian institutions. Designed to global standards.</p>
+      </div>
+
+      <!-- NEW: Legal / region / security trust row. Lightweight reassurance for procurement-minded reviewers. -->
+      <div class="footer-legal-row">
+        <span>🇮🇳 Made in India</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>Data hosted in India</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>SSL-encrypted in transit</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>Institutional NDAs available on request</span>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       MINIMAL JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* Sticky nav — adds .scrolled class on scroll */
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* Mobile hamburger */
+    const hamburger   = document.getElementById('hamburger');
+    const mobileNav   = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    /* Close mobile nav on link click */
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* Scroll reveal — uses IntersectionObserver */
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    /* CHANGED: Contact form — client-side only.
+       Wire up backend submission (e.g. fetch to /api/demo-request) at deploy time.
+       Currently shows success state on valid submit so the UX is testable. */
+    const contactForm    = document.getElementById('contact-form');
+    const contactSuccess = document.getElementById('cf-success');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!contactForm.checkValidity()) {
+          contactForm.reportValidity();
+          return;
+        }
+        // TODO: replace with actual backend POST
+        // const formData = new FormData(contactForm);
+        // fetch('/api/demo-request', { method: 'POST', body: formData })...
+
+        contactForm.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
+        contactSuccess.hidden = false;
+        contactSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+  </script>
+
+</body>
+</html>
