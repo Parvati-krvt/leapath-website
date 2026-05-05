@@ -3613,17 +3613,21 @@
        MINIMAL JAVASCRIPT
   ============================================================ -->
   <script>
-    /* Sticky nav — adds .scrolled class on scroll */
-    const navbar = document.getElementById('navbar');
-    const onScroll = () => {
+  /* Sticky nav — adds .scrolled class on scroll */
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => {
+    if (navbar) {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-    /* Mobile hamburger */
-    const hamburger   = document.getElementById('hamburger');
-    const mobileNav   = document.getElementById('mobile-nav');
+  /* Mobile hamburger */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  if (hamburger && mobileNav) {
     hamburger.addEventListener('click', () => {
       const isOpen = mobileNav.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', isOpen);
@@ -3636,9 +3640,66 @@
         hamburger.setAttribute('aria-expanded', 'false');
       });
     });
+  }
+
+  /* Scroll reveal — uses IntersectionObserver */
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if (revealEls.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealEls.forEach(el => observer.observe(el));
+  }
+
+  /* Contact form — allow Formspree submission */
+  const contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      if (!contactForm.checkValidity()) {
+        e.preventDefault();
+        contactForm.reportValidity();
+      }
+      /* If valid → let Formspree handle submission */
+    });
+  }
+</script>
+    /* Sticky nav — adds .scrolled class on scroll */
+    /*const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* Mobile hamburger */
+    /*const hamburger   = document.getElementById('hamburger');
+    const mobileNav   = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    /* Close mobile nav on link click */
+    /*mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
 
     /* Scroll reveal — uses IntersectionObserver */
-    const revealEls = document.querySelectorAll('.reveal');
+    /*const revealEls = document.querySelectorAll('.reveal');
     const observer  = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -3671,7 +3732,6 @@
         contactSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     }
-  </script>
 
 </body>
 </html>
